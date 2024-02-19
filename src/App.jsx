@@ -2,9 +2,7 @@ import { useState } from 'react';
 import './App.css';
 
 function App() {
-  return <div>
-    React ecommerce
-  </div>;
+  return <h1 class='text-3xl font-bold underline'>React ecommerce</h1>;
 }
 
 export default App;
