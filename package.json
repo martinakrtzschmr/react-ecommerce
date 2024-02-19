@@ -1,7 +1,7 @@
 {
   "name": "react-ecommerce",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,10 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-router": "^1.16.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@tanstack/eslint-plugin-query": "^5.20.1",
+    "@tanstack/router-devtools": "^1.16.6",
+    "@tanstack/router-vite-plugin": "^1.16.5",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
     "@vitejs/plugin-react": "^4.2.1",
