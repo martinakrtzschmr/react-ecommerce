@@ -1,6 +1,5 @@
 import { createRootRoute, Link, Outlet } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/router-devtools';
-import App from 'src/App';
 
 export const Route = createRootRoute({
   component: () => (
@@ -14,7 +13,6 @@ export const Route = createRootRoute({
         </Link>
       </div>
       <hr />
-      <App />
       <Outlet />
       <TanStackRouterDevtools />
     </>
