@@ -6,6 +6,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
     'plugin:react-hooks/recommended',
+    '@tanstack/eslint-plugin-query',
     'plugin:@tanstack/eslint-plugin-query',
     'plugin:@tanstack/router-vite-plugin',
     'plugin:@typescript-eslint/recommended',
