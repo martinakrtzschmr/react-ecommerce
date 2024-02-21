@@ -4,6 +4,7 @@ import Container from '../ui/container';
 import { Link } from '@tanstack/react-router';
 import ProfileButton from '../ProfileButton';
 import { ModeToggle } from '../ui/mode-toggle';
+import MobileSheet from '../Sheet';
 
 const routes = [
   {
@@ -28,6 +29,7 @@ const Header = (props: Props) => {
       <Container>
         <div className='relative px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between w-full'>
           <div className='flex items-center'>
+            <MobileSheet routes={routes} />
             <Link to='/' className='ml-4 lg:ml-0'>
               <h1 className='text-xl font-bold'>Store Name</h1>
             </Link>
