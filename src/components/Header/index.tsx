@@ -3,6 +3,7 @@ import { Button } from '../ui/button';
 import Container from '../ui/container';
 import { Link } from '@tanstack/react-router';
 import ProfileButton from '../ProfileButton';
+import { ModeToggle } from '../ui/mode-toggle';
 
 const routes = [
   {
@@ -56,16 +57,7 @@ const Header = (props: Props) => {
               <span className='sr-only'>Shopping Cart</span>
             </Button>
 
-            <Button
-              variant='ghost'
-              size='icon'
-              aria-label='Toggle Theme'
-              className='mr-6'
-            >
-              <Sun className='h-6 w-6 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0' />
-              <Moon className='absolute h-6 w-6 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100' />
-              <span className='sr-only'>Toggle Theme</span>
-            </Button>
+            <ModeToggle />
             <ProfileButton />
           </div>
         </div>
