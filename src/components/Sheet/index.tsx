@@ -1,13 +1,7 @@
 import { Menu } from 'lucide-react';
-import { Button } from '../ui/button';
 import {
   Sheet,
-  SheetClose,
   SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from '../ui/sheet';
 import { Link } from '@tanstack/react-router';
