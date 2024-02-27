@@ -1,6 +1,5 @@
 import { Link } from '@tanstack/react-router';
 import { Card, CardContent, CardFooter } from './card';
-
 import { ListItem } from '../../../types';
 
 interface ProductCard {
@@ -9,16 +8,13 @@ interface ProductCard {
 
 const ProductCard: React.FC<ProductCard> = ({ data }) => {
   return (
-    <Link
-      href='/'
-      className='outline-0 focus:ring-2 hover:ring-2 ring-primary transition duration-300 rounded-lg border-2'
-    >
-      <Card className='rounded-lg border-2'>
+    <Link href='/'>
+      <Card className='rounded-none border-2'>
         <CardContent className='pt-4'>
-          <div className='aspect-square relative bg-foreground/5 dark:bg-backgrond rounded-lg'>
+          <div className='aspect-square relative bg-foreground/5 dark:bg-backgrond'>
             <image
               href={data.ThumbnailURL}
-              className='aspect-square object-cover rounded-lg transition-all duration-300 hover:scale-105'
+              className='aspect-square object-cover transition-all duration-300 hover:scale-105'
             />
           </div>
         </CardContent>
