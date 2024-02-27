@@ -13,44 +13,44 @@ import { createFileRoute } from '@tanstack/react-router'
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as ListingImport } from './routes/listing'
+import { Route as IndexImport } from './routes/index'
 
 // Create Virtual Routes
 
-const ListingLazyImport = createFileRoute('/listing')()
 const AboutLazyImport = createFileRoute('/about')()
-const IndexLazyImport = createFileRoute('/')()
 
 // Create/Update Routes
-
-const ListingLazyRoute = ListingLazyImport.update({
-  path: '/listing',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/listing.lazy').then((d) => d.Route))
 
 const AboutLazyRoute = AboutLazyImport.update({
   path: '/about',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/about.lazy').then((d) => d.Route))
 
-const IndexLazyRoute = IndexLazyImport.update({
+const ListingRoute = ListingImport.update({
+  path: '/listing',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const IndexRoute = IndexImport.update({
   path: '/',
   getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
+} as any)
 
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
     '/': {
-      preLoaderRoute: typeof IndexLazyImport
+      preLoaderRoute: typeof IndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/listing': {
+      preLoaderRoute: typeof ListingImport
       parentRoute: typeof rootRoute
     }
     '/about': {
       preLoaderRoute: typeof AboutLazyImport
-      parentRoute: typeof rootRoute
-    }
-    '/listing': {
-      preLoaderRoute: typeof ListingLazyImport
       parentRoute: typeof rootRoute
     }
   }
@@ -59,9 +59,9 @@ declare module '@tanstack/react-router' {
 // Create and export the route tree
 
 export const routeTree = rootRoute.addChildren([
-  IndexLazyRoute,
+  IndexRoute,
+  ListingRoute,
   AboutLazyRoute,
-  ListingLazyRoute,
 ])
 
 /* prettier-ignore-end */

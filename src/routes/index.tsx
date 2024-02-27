@@ -12,8 +12,6 @@ const Error = () => {
 
 const Index = () => {
   const { data, isLoading } = useListingData();
-  console.log('data: ', data);
-  console.log('isLoading: ', isLoading);
 
   return (
     <Container>

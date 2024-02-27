@@ -1,8 +1,4 @@
 export interface ListItem {
-  // userId: number,
-  // id: number,
-  // title: string,
-  // body: string
   Id: number;
   DateListed: string;
   Title: string;
