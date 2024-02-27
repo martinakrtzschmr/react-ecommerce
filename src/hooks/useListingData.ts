@@ -7,8 +7,6 @@ const API_URL = 'http://localhost:3500/data';
 // 'https://s3.us-west-2.amazonaws.com/cdn.number8.com/LA/listings.json';
 
 const fetchData = async () => {
-  console.log('DEV_ENV: ', DEV_ENV);
-  console.log('PROD_ENV: ', PROD_ENV);
   if (DEV_ENV || PROD_ENV) { // TODO: Current code uses db.json always. Add backend API for this.
     const res = await fetch('/db.json');
     const data = await res.json();
