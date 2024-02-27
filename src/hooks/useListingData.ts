@@ -10,7 +10,7 @@ const fetchData = async () => {
   console.log('DEV_ENV: ', DEV_ENV);
   console.log('PROD_ENV: ', PROD_ENV);
   if (DEV_ENV || PROD_ENV) { // TODO: Current code uses db.json always. Add backend API for this.
-    const res = await fetch('../../db.json');
+    const res = await fetch('/db.json');
     const data = await res.json();
     return data.data;
   }
