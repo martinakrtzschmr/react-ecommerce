@@ -8,10 +8,6 @@ import MobileSheet from '../Sheet';
 
 const routes = [
   {
-    href: '/',
-    label: 'Home',
-  },
-  {
     href: '/about',
     label: 'About',
   },
@@ -33,20 +29,20 @@ const Header = (props: Props) => {
             <Link to='/' className='ml-4 lg:ml-0'>
               <h1 className='text-xl font-bold'>Store Name</h1>
             </Link>
-          </div>
 
-          <nav className='mx-6 flex items-center space-x-4 lg:space-x-6 hidden md:block'>
-            {routes.map((route, i) => (
-              <Button key={i} asChild variant='ghost'>
-                <Link
-                  to={route.href}
-                  className='text-sm font-medium transition-colors'
-                >
-                  {route.label}
-                </Link>
-              </Button>
-            ))}
-          </nav>
+            <nav className='mx-6 flex items-center space-x-4 lg:space-x-6 hidden md:block'>
+              {routes.map((route, i) => (
+                <Button key={i} asChild variant='ghost'>
+                  <Link
+                    to={route.href}
+                    className='text-sm font-medium transition-colors'
+                  >
+                    {route.label}
+                  </Link>
+                </Button>
+              ))}
+            </nav>
+          </div>
 
           <div className='flex items-center'>
             <Button

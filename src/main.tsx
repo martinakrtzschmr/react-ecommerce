@@ -3,7 +3,15 @@ import { ThemeProvider } from './components/theme-provider';
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider, createRouter } from '@tanstack/react-router';
+import { ClerkProvider } from '@clerk/clerk-react';
 import './index.css';
+
+// Import your publishable key
+const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
+
+if (!PUBLISHABLE_KEY) {
+  throw new Error('Missing Publishable Key');
+}
 
 /* React Router */
 // Import the generated route tree
@@ -29,11 +37,13 @@ if (!rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement);
   root.render(
     <StrictMode>
-      <ThemeProvider defaultTheme='light' storageKey='vite-ui-theme'>
-        <QueryClientProvider client={queryClient}>
-          <RouterProvider router={router} />
-        </QueryClientProvider>
-      </ThemeProvider>
+      <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
+        <ThemeProvider defaultTheme='light' storageKey='vite-ui-theme'>
+          <QueryClientProvider client={queryClient}>
+            <RouterProvider router={router} />
+          </QueryClientProvider>
+        </ThemeProvider>
+      </ClerkProvider>
     </StrictMode>
   );
 }
