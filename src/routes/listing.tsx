@@ -6,6 +6,8 @@ import { fetchDataFromJson, useListingData } from '../hooks/useListingData';
 import { useQuery } from '@tanstack/react-query';
 import { useForm } from '@tanstack/react-form';
 import { useState } from 'react';
+import FormField from '../components/FormField';
+import { Button } from '../components/ui/button';
 
 export const Route = createFileRoute('/listing')({
   // Create File Route Props and use cases:
@@ -27,7 +29,7 @@ const initalState = {
   title: '',
   description: '',
   location: '',
-}
+};
 
 function Listing() {
   const [searchParams, setSearchParams] = useState(initalState);
@@ -60,48 +62,22 @@ function Listing() {
                   void form.handleSubmit();
                 }}
               >
-                <div>
-                  <form.Field
-                    name='title'
-                    children={(field) => (
-                      <input
-                        name={field.name}
-                        value={field.state.value}
-                        onBlur={field.handleBlur}
-                        onChange={(e) => field.handleChange(e.target.value)}
-                        placeholder='título'
-                        className='p-2 rounded-sm text-black'
-                      />
-                    )}
-                  />
-                  <form.Field
+                <div className='p-2'>
+                  <FormField form={form} name='title' placeholder='Título' />
+                  <FormField
+                    form={form}
                     name='description'
-                    children={(field) => (
-                      <input
-                        name={field.name}
-                        value={field.state.value}
-                        onBlur={field.handleBlur}
-                        onChange={(e) => field.handleChange(e.target.value)}
-                        placeholder='descrição'
-                        className='p-2 rounded-sm text-black'
-                      />
-                    )}
+                    placeholder='Descrição'
                   />
-                  <form.Field
+                  <FormField
+                    form={form}
                     name='location'
-                    children={(field) => (
-                      <input
-                        name={field.name}
-                        value={field.state.value}
-                        onBlur={field.handleBlur}
-                        onChange={(e) => field.handleChange(e.target.value)}
-                        placeholder='localização'
-                        className='p-2 rounded-sm text-black'
-                      />
-                    )}
+                    placeholder='Localização'
                   />
                 </div>
-                <button type='submit'>Submit</button>
+                <div className='p-3'>
+                  <Button variant='outline' type='submit'>Pesquisar</Button>
+                </div>
               </form>
             </form.Provider>
           </div>

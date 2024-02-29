@@ -1,4 +1,4 @@
-import ProductCard from '../ui/ProductCard';
+import ProductCard from '../ProductCard';
 import { ListProps } from '../../../types';
 
 const ProductList: React.FC<ListProps> = ({ items }) => {
