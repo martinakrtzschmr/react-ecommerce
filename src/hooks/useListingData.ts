@@ -31,10 +31,7 @@ const apiData = async (searchParsms: searchParamsProps) => {
   return query.data;
 };
 
-export function useListingData(
-  searchParsms: searchParamsProps,
-  api_toggle = false
-) {
+export function useListingData(searchParsms: searchParamsProps) {
   const query = useQuery({
     queryFn: fetchDataFromJson,
     queryKey: ['listingData', searchParsms],
