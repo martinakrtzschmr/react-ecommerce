@@ -13,17 +13,17 @@ const ProductCard: React.FC<ProductCard> = ({ data }) => {
         <CardContent className='pt-4'>
           <div className='aspect-square relative bg-foreground/5 dark:bg-backgrond'>
             <image
-              href={data.ThumbnailURL}
+              href={data.thumbnailURL}
               className='aspect-square object-cover transition-all duration-300 hover:scale-105'
             />
           </div>
         </CardContent>
         <CardFooter className='flex-col items-start'>
           <div>
-            <p className='font-semibold text-lg'>{data.Location}</p>
-            <p className='text-sm text-primary/80'>{data.DateListed}</p>
+            <p className='font-semibold text-lg'>{data.location}</p>
+            <p className='text-sm text-primary/80'>{data.dateListed}</p>
           </div>
-          <div className='flex items-center justify-between'>{data?.SalePrice}</div>
+          <div className='flex items-center justify-between'>{data?.salePrice}</div>
         </CardFooter>
       </Card>
     </Link>
