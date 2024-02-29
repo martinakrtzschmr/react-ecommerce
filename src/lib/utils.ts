@@ -18,19 +18,20 @@ export function filterObjects(array: ListItem[], filters: searchParamsProps) {
   );
 
   // Filter the array based on the provided filters
-  const meuArrayfiltrado = array.filter(
-    (el) => {
-      return Object.keys(currentFilters).every(key => {
-        if (typeof currentFilters[key] === 'string' && typeof el[key] === 'string') {
-          return el[key].toLowerCase().includes(currentFilters[key].toLowerCase());
-        }
+  const filteredObjects = array.filter((el) => {
+    return Object.keys(currentFilters).every((key) => {
+      if (
+        typeof currentFilters[key] === 'string' &&
+        typeof el[key] === 'string'
+      ) {
+        return el[key]
+          .toLowerCase()
+          .includes(currentFilters[key].toLowerCase());
+      }
 
-        return currentFilters[key] === el[key];
-      })
-    }
-  );
+      return currentFilters[key] === el[key];
+    });
+  });
 
-  console.log('meuArrayfiltrado: ', meuArrayfiltrado);
-
-  return meuArrayfiltrado;
+  return filteredObjects;
 }
