@@ -7,8 +7,6 @@ interface ProductCard {
 }
 
 const ProductCard: React.FC<ProductCard> = ({ data }) => {
-  console.log('data: ', data);
-
   return (
     <Link href='/'>
       <Card className='rounded-none border-2'>
