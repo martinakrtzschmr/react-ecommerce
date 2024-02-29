@@ -1,21 +1,21 @@
 export interface ListItem {
-  Id: number;
-  DateListed: string;
-  Title: string;
-  Description: string;
-  SalePrice: number;
-  ThumbnailURL: string;
-  PictureURL: string;
-  Location: string;
-  Sqft: number;
-  Bedrooms: number;
-  Bathrooms: number;
-  Parking: number;
-  YearBuilt: number;
+  id: number;
+  dateListed: string;
+  title: string;
+  tescription: string;
+  salePrice: number;
+  thumbnailURL: string;
+  pictureURL: string;
+  location: string;
+  sqft: number;
+  bedrooms: number;
+  bathrooms: number;
+  parking: number;
+  yearBuilt: number;
 }
 
 export interface ListProps {
-  items: ListItem[];
+  items?: ListItem[];
 }
 
 export interface ListingResponse {
