@@ -1,23 +1,22 @@
 import { createFileRoute } from '@tanstack/react-router';
-import Container from '../components/ui/container';
-import { Separator } from '../components/ui/separator';
-import ProductList from '../components/ProductList';
 import Loading from '../components/Loading';
-import { useListingData } from '../hooks/useListingData';
 import Error from '../components/Error';
 
-const Index = () => {
-  const { data, isLoading } = useListingData();
+export const Route = createFileRoute('/')({
+  pendingComponent: Loading,
+  errorComponent: Error,
+  component: Index,
+});
 
+function Index() {
   return (
-    <Container>
-      <div className='space-y-10 pb-10'>
-        <div className='p-4 sm:p-6 lg:p-8 rounded-lg overflow-hidden'>
-          <div
-            style={{ backgroundImage: `url(/images/hero-1920x1080.jpg)` }}
-            className='rounded-lg relative aspect-square md:aspect-[2.4/1] overflow-hidden bg-cover'
-          >
-            {/* <div className='h-full w-full flex flex-col justify-center items-center text-center gap-y-8'>
+    <div className='space-y-10 pb-10'>
+      <div className='p-4 sm:p-6 lg:p-8 rounded-lg overflow-hidden'>
+        <div
+          style={{ backgroundImage: `url(/images/hero-1920x1080.jpg)` }}
+          className='rounded-lg relative aspect-square md:aspect-[2.4/1] overflow-hidden bg-cover'
+        >
+          {/* <div className='h-full w-full flex flex-col justify-center items-center text-center gap-y-8'>
               <div className='font-bold text-3xl sm:text-5xl lg:text-6xl sm:max-w-xl max-w-xs text-black dark:text-white bg-secondary/60 p-4 rouded-lg'>
                 Featured Products
                 <Button size='lg' className='w-full py-6 text-xl'>
@@ -25,26 +24,8 @@ const Index = () => {
                 </Button>
               </div>
             </div> */}
-          </div>
-        </div>
-
-        <div className='flex flex-col gap-y-8 px-4 sm:px-6 lg:px-8'>
-          <div className='space-y-4'>
-            <h3 className='font-bold text-xl sm:text-2xl lg:text-3xl dark:text-white text-black'>
-              Featured Products
-            </h3>
-            <Separator />
-          </div>
-          {isLoading && <Loading />}
-          {!isLoading && <ProductList items={data} />}
         </div>
       </div>
-    </Container>
+    </div>
   );
-};
-
-export const Route = createFileRoute('/')({
-  pendingComponent: Loading,
-  errorComponent: Error,
-  component: Index,
-});
+}
